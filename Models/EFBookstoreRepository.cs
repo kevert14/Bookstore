@@ -1,10 +1,17 @@
 ﻿using System;
+using System.Linq;
+
 namespace Bookstore.Models
 {
-    public class EFBookstoreRepository
+    public class EFBookstoreRepository : IBookstoreRepository
     {
-        public EFBookstoreRepository()
+        private BookstoreContext context { get; set; }
+
+        public EFBookstoreRepository (BookstoreContext temp)
         {
+            context = temp;
         }
+
+        public IQueryable<Books> Books => context.Books;
     }
 }
