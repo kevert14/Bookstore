@@ -31,7 +31,7 @@ namespace Bookstore.Models
         // calculate cart total
         public double CalculateTotal()
         {
-            double sum = Items.Sum(x => x.Book.Price);
+            double sum = Items.Sum(x => x.Quantity * x.Book.Price);
 
             return sum;
         }

@@ -7,12 +7,15 @@
 
     <div class="bg-light p-1">
         <h4>@Model.Title</h4>
+
+        <span class="badge bg-warning" style="float:left">
+            ISBN: @Model.Isbn
+        </span>
     </div>
 
     <ul>
         <li>Author: @Model.Author</li>
         <li>Publisher: @Model.Publisher</li>
-        <li>ISBN: @Model.Isbn</li>
         <li>Classification: @Model.Classification</li>
         <li>Category: @Model.Category</li>
         <li>Pagecount: @Model.PageCount</li>
