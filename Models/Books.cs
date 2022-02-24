@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Bookstore.Models
 {
+    // models to creat database
     public partial class Books
     {
         [Key]

@@ -8,7 +8,7 @@ namespace Bookstore.Models
     public class Basket
     {
         public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
-
+        // add item to basket
         public void AddItem (Books book, int qty)
         {
             BasketLineItem line = Items
@@ -28,15 +28,16 @@ namespace Bookstore.Models
                 line.Quantity += qty;
             }
         }
+        // calculate cart total
         public double CalculateTotal()
         {
-            double sum = Items.Sum(x => x.Quantity * 25);
+            double sum = Items.Sum(x => x.Book.Price);
 
             return sum;
         }
     }
 
-
+    // for diplaying line items
     public class BasketLineItem
     {
         public int LineID { get; set; }

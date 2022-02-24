@@ -18,7 +18,7 @@ namespace Bookstore.Controllers
         {
             repo = temp;
         }
-
+        // controller for displaying available books
         public IActionResult Index(string bookCategory, int pageNum = 1)
         {
             int numResults = 10;
@@ -31,6 +31,7 @@ namespace Bookstore.Controllers
                 .Skip((pageNum - 1) * numResults)
                 .Take(numResults),
 
+                // page info controller
                 PageInfo = new PageInfo
                 {
                     TotalNumBooks = 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bookstore.Components
 {
+    // controllers to help filter book categories
     public class TypesViewComponent : ViewComponent
     {
         private IBookstoreRepository repo { get; set; }

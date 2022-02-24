@@ -3,6 +3,8 @@
 }
 @model BooksViewModel
 
+@*index page that is linked with a partial view*@
+
 @foreach (Books b in Model.Books)
 {
     <partial name="ProjectSummary" model="b" />

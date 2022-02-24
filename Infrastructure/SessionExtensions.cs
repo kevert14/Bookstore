@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bookstore.Infrastructure
 {
+    //used to create sessions to store session data and remember cart until program is exited
     public static class SessionExtensions
     {
         public static void SetJson (this ISession session, string key, object value)
