@@ -23,6 +23,7 @@
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="3.1.1" />
     <PackageReference Include="Bootstrap.Less" Version="3.4.1" />
+    <PackageReference Include="font-awesome" Version="4.7.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.22">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
