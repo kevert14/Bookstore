@@ -87,7 +87,7 @@
 
     public void SaveBooks()
     {
-        if (Id != 0)
+        if (Id == 0)
         {
             repo.CreateBook(b);
         }
