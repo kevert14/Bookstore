@@ -84,7 +84,7 @@
             b = repo.Books.FirstOrDefault(x => x.BookId == Id);
         }
     }
-
+// determine wither its an edit or create
     public void SaveBooks()
     {
         if (Id == 0)
