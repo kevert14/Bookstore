@@ -1,4 +1,5 @@
-﻿<table class="table table-sm table-striped table-bordered">
+﻿@*table to display purchase records within the admin page*@
+<table class="table table-sm table-striped table-bordered">
     <thead>
         <tr>
             <th colspan="5" class="text-center">@TableTitle</th>
@@ -6,42 +7,44 @@
     </thead>
 
     <tbody>
-        @if (Purchases?.Count() > 0) 
-            { 
-                @foreach (Purchase p  in Purchases)
-                {
-                    <tr>
-                        <td>@p.Name</td>
-                        <td>@p.Zip</td>
-                        <th>Book</th>
-                        <th>Quantity</th>
-
-                        <td>
-                            <button class="btn btn-sm btn-danger" @onclick="@(x => PurchaseSelected.InvokeAsync(p.PurchaseId))">
-                                @ButtonLabel
-                            </button>
-                        </td>
-                    </tr>
-
-                    @foreach (BasketLineItem bli in p.Lines)
-                    {
-                        <tr>
-                            <td colspan="2"></td>
-                            <td>@bli.Book.Title</td>
-                            <td>@bli.Quantity</td>
-                        </tr>
-                    }
-                }
-        }
-        else
+        @if (Purchases?.Count() > 0)
+        {
+            @foreach (Purchase p in Purchases)
             {
                 <tr>
-                    <td colspan="5" class="text-center">No Orders</td>
+                    <td>@p.Name</td>
+                    <td>@p.Zip</td>
+                    <th>Book</th>
+                    <th>Quantity</th>
+
+                    <td>
+                        <button class="btn btn-sm btn-danger" @onclick="@(x => PurchaseSelected.InvokeAsync(p.PurchaseId))">
+                            @ButtonLabel
+                        </button>
+                    </td>
                 </tr>
+
+                @*link to items in the cart*@
+                @foreach (BasketLineItem bli in p.Lines)
+                {
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>@bli.Book.Title</td>
+                        <td>@bli.Quantity</td>
+                    </tr>
+                }
             }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">No Orders</td>
+            </tr>
+        }
     </tbody>
 </table>
 
+@*set parameters for admin page references*@
 @code {
 
     [Parameter]
@@ -54,7 +57,7 @@
     public string ButtonLabel { get; set; } = "Shipped";
 
     [Parameter]
-    public EventCallback<int>PurchaseSelected { get; set; }
+    public EventCallback<int> PurchaseSelected { get; set; }
 
 
 }

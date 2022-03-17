@@ -9,6 +9,7 @@
 
 <buton class="btn btn-info" @onclick="@(x => UpdateData())">Refresh Data</buton>
 
+@*methods for determining shipped status and returning info to admin page*@
 @code {
 
     public IPurchaseRepository repo => Service;
@@ -33,11 +34,11 @@
     public void ShipPurchase(int id) => UpdatePurchase(id, true);
     public void ResetPurchase(int id) => UpdatePurchase(id, false);
 
-    private void UpdatePurchase (int id , bool purchased)
+    private void UpdatePurchase(int id, bool purchased)
     {
         Purchase p = repo.Purchases.FirstOrDefault(x => x.PurchaseId == id);
         p.PurchaseRecieved = purchased;
         repo.SavePurchase(p);
 
     }
-} 
+}

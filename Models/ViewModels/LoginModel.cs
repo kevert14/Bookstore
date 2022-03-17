@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bookstore.Models.ViewModels
 {
+    // model created for admin login
     public class LoginModel
     {
         [Required]

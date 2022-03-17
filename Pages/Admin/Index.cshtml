@@ -1,4 +1,8 @@
 ﻿@page "/admin"
+
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
 @model Bookstore.Pages.Admin.IndexModel
 @{
 }
@@ -6,7 +10,7 @@
 <!DOCTYPE html>
 
 <html>
-
+@*tite + bootstrap import*@
 <head>
     <title>Book Store Admin</title>
     <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
@@ -14,6 +18,7 @@
 
 </head>
 
+@*link to blazor*@
 <body>
 
     <component type="typeof(Bookstore.Pages.Admin.Routed)" render-mode="Server" />

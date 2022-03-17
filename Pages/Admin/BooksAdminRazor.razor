@@ -18,24 +18,24 @@
         {
             @foreach (Books b in BookData)
             {
-        <tr>
-            <td>@b.BookId</td>
-            <td>@b.Title</td>
-            <td>@b.Author</td>
-            
-            // custom bootstrap here
-            <td>
-                <NavLink class="btn btn-outline-secondary btn-sm" href="@GetDetailsUrl(b.BookId)">Details</NavLink>
-            </td>
+                <tr>
+                    <td>@b.BookId</td>
+                    <td>@b.Title</td>
+                    <td>@b.Author</td>
 
-            <td>
-                <NavLink class="btn btn-outline-warning btn-sm" href="@GetEditUrl(b.BookId)">Edit</NavLink>
-            </td>
+                    @*custom bootstrap here*@
+                    <td>
+                        <NavLink class="btn btn-outline-secondary btn-sm" href="@GetDetailsUrl(b.BookId)">Details</NavLink>
+                    </td>
 
-            <td>
-                <button class="btn btn-outline-danger btn-sm" @onclick="@(x => RemoveBook(b))">Delete</button>
-            </td>
-        </tr>
+                    <td>
+                        <NavLink class="btn btn-outline-warning btn-sm" href="@GetEditUrl(b.BookId)">Edit</NavLink>
+                    </td>
+
+                    <td>
+                        <button class="btn btn-outline-danger btn-sm" @onclick="@(x => RemoveBook(b))">Delete</button>
+                    </td>
+                </tr>
             }
         }
         else
@@ -49,8 +49,11 @@
 
 </table>
 
+@*custom bootstrap here*@
+
 <NavLink class="btn btn-outline-success" href="/admin/books/create">Create</NavLink>
 
+@*code for updating, deleting*@
 @code {
 
     public IBookstoreRepository repo => Service;
@@ -71,7 +74,7 @@
     public string GetDetailsUrl(long id) => $"/admin/books/details/{id}";
     public string GetEditUrl(long id) => $"/admin/books/edit/{id}";
 
-    public async Task RemoveBook (Books b)
+    public async Task RemoveBook(Books b)
     {
         repo.DeleteBook(b);
         await UpdateData();

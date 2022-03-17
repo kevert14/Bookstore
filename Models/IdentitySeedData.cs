@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 
 namespace Bookstore.Models
 {
+    //seeded data fort admin page
     public static class IdentitySeedData
     {
         private const string adminUser = "Admin";
         private const string adminPassword = "413ExtraYeetPeriod(t)!";
 
+        //check if data is seeded, otherwise seed data in db
         public static async void EnsurePopulated (IApplicationBuilder app)
         {
             AppIdentityDbContext context = app.ApplicationServices
@@ -24,6 +26,8 @@ namespace Bookstore.Models
             {
                 context.Database.Migrate();
             }
+
+            //user manager
 
             UserManager<IdentityUser> userManager = app.ApplicationServices
                 .CreateScope().ServiceProvider

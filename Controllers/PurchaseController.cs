@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bookstore.Controllers
 {
+    // controller for creating the cart functionality
     public class PurchaseController : Controller
     {
         private IPurchaseRepository repo { get; set; }
@@ -18,6 +19,7 @@ namespace Bookstore.Controllers
             basket = b;
         }
 
+        // check out 
         [HttpGet]
         public IActionResult Checkout()
         {
